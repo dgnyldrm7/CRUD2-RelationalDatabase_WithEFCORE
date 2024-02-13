@@ -1,0 +1,27 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<div class="container text-center p-5 my-5" >
+    <h3 class="badge text-white bg-success"> @Model.StudentName @Model.StudentLastName </h3>
+    <h2 > İsimli öğrenci silinecek. Kabul ediyor musun? </h2>
+
+
+
+    <div class="container-fluid" >
+        <form method="post">
+            <button type="submit" class="btn btn-danger">Evet</button>
+            <a href="/Home/List" class="btn btn-secondary">Hayır</a>
+        </form>
+        
+    </div>
+    
+</div>
+
+
+
+

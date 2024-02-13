@@ -1,0 +1,56 @@
+﻿@model Student
+
+
+@{
+    ViewData["Title"] = "Edit - CRUD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-2">
+    <div class="row justify-content-center">
+        <div class="card col-7 text-dark mx-2">
+
+            <form class="mx-5 my-3" method="post" asp-action="Edit">
+
+                <input type="hidden" asp-for="StudentId" />
+
+                <div class="mb-3">
+                    <h5 class="badge text-white bg-success">@Model.StudentName : STUDENT EDIT</h5>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="StudentName" class="form-label">Name</label>
+                    <input type="text" asp-for="StudentName" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="StudentLastName" class="form-label">Last Name</label>
+                    <input type="text" asp-for="StudentLastName" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-secondary">Edit Student</button>
+            </form>
+        </div>
+
+        <div class="col-4 text-center">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Kayıtlı Kurslar</div>
+                </div>
+                @foreach (var datas in @Model.Etiket)
+                {
+
+                    <div class="card-body" style="font-size: 15px; font-weight: 650;" >@datas.Course.CourseName</div>
+                    <hr />
+                } 
+                
+                @if(!Model.Etiket.Any())
+                {
+                    <div class="card-body">
+                        <div class="alert alert-danger">KAYITLI KURS BULUNAMADI!</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

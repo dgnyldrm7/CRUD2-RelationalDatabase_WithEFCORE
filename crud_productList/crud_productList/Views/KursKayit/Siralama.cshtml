@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ShowCourse>
+@{
+    ViewData["Title"] = "Siralama";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="card col-9 text-dark p-5">
+            <div class="mb-3">
+                <h5 class="badge text-white bg-primary">Kurslara Kayıtlı Öğrenciler</h5>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">StudentName</th>
+                        <th scope="col">CourseName</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var datas in Model)
+                    {
+                        var eksibir = datas.ShowCourseId - 1;
+
+                        <tr>
+                            <th scope="row">@eksibir</th>
+                            <td>@datas.Student.FullName</td>
+                            <td>@datas.Course.CourseName</td>
+                            <td>
+                                <a href="/Home/Edit/@datas.StudentId" class="btn btn-info btn-sm">Set</a>
+                                <a href="/Home/delete/@datas.StudentId" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

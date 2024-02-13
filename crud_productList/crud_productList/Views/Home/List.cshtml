@@ -1,0 +1,72 @@
+﻿@model  IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "Students - CRUD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="container my-2">
+    <div class="row justify-content-center">
+        <div class="card col-9 text-dark">
+            
+            <form class="mx-5 my-3" method="post" action="List">
+
+
+                <div class="mb-3">
+                    <h5 class="badge text-white bg-success">STUDENTS ADD</h5>
+                </div>
+                <div class="mb-3">
+                    <label for="StudentName" class="form-label">Name</label>
+                    <input type="text" name="StudentName" id="StudentName" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="StudentLastName" class="form-label">Last Name</label>
+                    <input type="text" name="StudentLastName" id="StudentLastName" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-secondary">Register Student</button>       
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="card col-9 text-dark p-5">
+            <div class="mb-3">
+                <h5 class="badge text-white bg-primary">STUDENTS LIST</h5>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Lastname</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var datas in Model)
+                    {
+                        
+                           int deger = datas.StudentId - 1;
+                        
+                    <tr>
+                            <th scope="row">@deger</th>
+                    <td>@datas.StudentName</td>
+                    <td>@datas.StudentLastName</td>
+                            <td>
+                                <a href="/Home/Edit/@datas.StudentId" class="btn btn-info btn-sm">Set</a>
+                                <a href="/Home/delete/@datas.StudentId" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                           
+                            
+                            
+                     </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

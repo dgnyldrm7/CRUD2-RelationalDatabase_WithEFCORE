@@ -1,0 +1,40 @@
+﻿@model ShowCourse
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container my-2">
+    <div class="row justify-content-center">
+
+        <div class="col-9 text-dart my-5">
+            <h4> Kursa Öğrenci Kayıt Ekleme</h4>
+            <hr />
+        </div>
+
+        <div class="card col-9 text-dark">
+            <form class="mx-5 my-3" method="post" asp-controller="KursKayit" asp-action="Ekleme">
+                <div class="mb-3">
+                    <h5 class="badge text-white bg-success">ReliationShip</h5>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="StudentId" class="form-label">Student Name</label>
+                    <select asp-for="StudentId"  asp-items="ViewBag.Student" class="form-control">
+                        <option value="">seçiniz</option>
+                    </select>
+                   
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CourseId" class="form-label">Course Name</label>
+                    <select asp-for="CourseId" asp-items="ViewBag.Course" class="form-control">
+                        <option value="">seçiniz</option>
+                    </select>
+                    
+                </div>
+                <button type="submit" class="btn btn-secondary">Kurs Kayıt</button>
+                <a asp-controller="KursKayit" asp-action="Siralama"  class="btn btn-success">Kurslara Kayılı Öğrenciler</a>
+            </form>
+        </div>
+    </div>
+</div>

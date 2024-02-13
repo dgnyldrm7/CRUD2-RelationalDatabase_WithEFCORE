@@ -1,0 +1,29 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "EDIT - CRUD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-2">
+    <div class="row justify-content-center">
+        <div class="card col-9 text-dark">
+
+            <form class="mx-5 my-3" method="post" asp-action="Set">
+
+                <input type="hidden" asp-for="CourseId" />
+
+                <div class="mb-3">
+                    <h5 class="badge text-white bg-success">COURSE EDIT</h5>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CourseName" class="form-label">Name</label>
+                    <input type="text" asp-for="CourseName" class="form-control">
+                </div>
+                
+                <button type="submit" class="btn btn-secondary">Edit Course</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

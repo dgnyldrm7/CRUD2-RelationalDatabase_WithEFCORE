@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Course>
+
+
+@{
+    ViewData["Title"] = "COURSE - CRUD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container my-2">
+    <div class="row justify-content-center">
+        <div class="card col-9 text-dark">
+
+            <form class="mx-5 my-3" method="post" asp-controller="Kurs" asp-action="Index">
+
+
+                <div class="mb-3">
+                    <h5 class="badge text-white bg-success">COURSE ADD</h5>
+                </div>
+                <div class="mb-3">
+                    <label for="CourseName" class="form-label">Name</label>
+                    <input type="text" name="CourseName" id="CourseName" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-secondary">Register Course</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="card col-9 text-dark p-5">
+            <div class="mb-3">
+                <h5 class="badge text-white bg-primary">COURSE LIST</h5>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Course Name</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    @foreach(var dts in Model)
+                    {
+                        <tr>
+                            <th scope="row">@dts.CourseId</th>
+                            <td>@dts.CourseName</td>
+                            <td>
+                                <div>
+                                        <a href="/Kurs/Set/@dts.CourseId" class="btn btn-info btn-sm"> EDIT</a>
+                                        <a href="/Kurs/Del/@dts.CourseId" class="btn btn-danger btn-sm"> DELETE</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

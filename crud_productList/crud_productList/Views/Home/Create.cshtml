@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "Courses - CRUD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container my-2">
+    <div class="row justify-content-center">
+        <div class="card col-9 text-dark">
+            <div asp-validation-summary="All"></div>
+            <form class="mx-5 my-3" method="post" action="List">
+                <div class="mb-3">
+                    <h5 class="badge text-white bg-success">COURSES ADD</h5>
+                </div>
+                <div class="mb-3">
+                    <label for="StudentName" class="form-label">Course Name</label>
+                    <input type="text" name="StudentName" id="StudentName" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Register Course</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="card col-9 text-dark p-5">
+            <div class="mb-3">
+                <h5 class="badge text-white bg-primary">COURSES LIST</h5>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Lastname</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+
+
+                        <tr>
+                            <th scope="row">deger</th>
+                            <td>datas.StudentName</td>
+                            <td>datas.StudentLastName</td>
+                            <td>
+                                <a href="/" class="btn btn-info">Set</a>
+                                <a href="/" class="btn btn-danger">Delete</a>
+                            </td>
+
+
+
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
